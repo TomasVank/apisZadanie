@@ -1,1 +1,0 @@
-DELETE FROM product_ID where product_ID=
