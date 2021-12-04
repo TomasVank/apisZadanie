@@ -146,5 +146,45 @@ def UpdateProduct(id):
   myDb.close()
   return jsonify("Updated"),200
 
+
+@app.route('/DeleteOrder/<id>', methods=['DELETE'])
+def DeleteOrder(id):
+	with open ('content/OrderDeleteTable.ddl') as ddl_file:
+		sql = ddl_file.read()
+		sql = sql + "'{}'"
+	myDb = MYSQL.connect(host="147.232.40.14", user="tv635vg", passwd="Airi8Eiw", database="tv635vg")
+	cursor = myDb.cursor()
+	cursor.execute(sql.format(id))
+	myDb.commit()
+	cursor.close()
+	myDb.close()
+	return jsonify("Deleted"),204
+
+@app.route('/DeleteCustomer/<id>', methods=['DELETE'])
+def DeleteCustomer(id):
+	with open ('content/CustomerDeleteTable.ddl') as ddl_file:
+		sql = ddl_file.read()
+		sql = sql + "'{}'"
+	myDb = MYSQL.connect(host="147.232.40.14", user="tv635vg", passwd="Airi8Eiw", database="tv635vg")
+	cursor = myDb.cursor()
+	cursor.execute(sql.format(id))
+	myDb.commit()
+	cursor.close()
+	myDb.close()
+	return jsonify("Deleted"),204
+
+@app.route('/DeleteProduct/<id>', methods=['DELETE'])
+def DeleteProduct(id):
+	with open ('content/ProductDeleteTable.ddl') as ddl_file:
+		sql = ddl_file.read()
+		sql = sql + "'{}'"
+	myDb = MYSQL.connect(host="147.232.40.14", user="tv635vg", passwd="Airi8Eiw", database="tv635vg")
+	cursor = myDb.cursor()
+	cursor.execute(sql.format(id))
+	myDb.commit()
+	cursor.close()
+	myDb.close()
+	return jsonify("Deleted"),204
+
 if __name__ == "__main__":
     app.run()
