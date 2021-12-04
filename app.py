@@ -11,7 +11,7 @@ CORS(app)
 
 @app.route('/', methods=['GET'])
 def GetOrders():
-  with open ('/content/OrderGetTable.ddl') as ddl_file:
+  with open ('content/OrderGetTable.ddl') as ddl_file:
     sql = ddl_file.read()
   myDb = MYSQL.connect(host="147.232.40.14", user="tv635vg", passwd="Airi8Eiw", database="tv635vg")
   cursor = myDb.cursor()
