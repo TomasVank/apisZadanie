@@ -22,5 +22,41 @@ def GetOrders():
 
   return jsonify(result),200
 
+@app.route('/GetOrders/<id>', methods=['GET'])
+def GetIdOrder(id):
+  with open ('content/OrderByIdGetTable.ddl') as ddl_file:
+    sql = ddl_file.read()
+  myDb = MYSQL.connect(host="147.232.40.14", user="tv635vg", passwd="Airi8Eiw", database="tv635vg")
+  cursor = myDb.cursor()
+  cursor.execute(sql+id)
+  result = cursor.fetchall()
+  cursor.close()
+  myDb.close()
+  return jsonify(result),200
+
+@app.route('/GetProducts', methods=['GET'])
+def GetProducts():
+  with open ('content/ProductGetTable.ddl') as ddl_file:
+    sql = ddl_file.read()
+  myDb = MYSQL.connect(host="147.232.40.14", user="tv635vg", passwd="Airi8Eiw", database="tv635vg")
+  cursor = myDb.cursor()
+  cursor.execute(sql)
+  result = cursor.fetchall()
+  cursor.close()
+  myDb.close()
+  return jsonify(result),200
+
+@app.route('/GetCustomers', methods=['GET'])
+def GetCustomers():
+  with open ('content/CustomerGetTable.ddl') as ddl_file:
+    sql = ddl_file.read()
+  myDb = MYSQL.connect(host="147.232.40.14", user="tv635vg", passwd="Airi8Eiw", database="tv635vg")
+  cursor = myDb.cursor()
+  cursor.execute(sql)
+  result = cursor.fetchall()
+  cursor.close()
+  myDb.close()
+  return jsonify(result),200
+
 if __name__ == "__main__":
     app.run()
