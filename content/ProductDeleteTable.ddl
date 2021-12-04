@@ -1,1 +1,1 @@
-DELETE FROM product_ID where product_ID=
+DELETE FROM products where product_ID=
