@@ -9,7 +9,7 @@ app = Flask(__name__)
 CORS(app)
 #run_with_ngrok(app)
 
-@app.route('/', methods=['GET'])
+@app.route('/GetOrders', methods=['GET'])
 def GetOrders():
   with open ('content/OrderGetTable.ddl') as ddl_file:
     sql = ddl_file.read()
