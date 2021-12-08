@@ -64,10 +64,9 @@ def CreateOrder():
   order_dict = dict(data)
   with open ('content/OrderInsertTable.ddl') as ddl_file:
     sql = ddl_file.read()
-    sql = sql[:-1] + "'{}','{}','{}','{}')"
   myDb = MYSQL.connect(host="147.232.40.14", user="tv635vg", passwd="Airi8Eiw", database="tv635vg")
   cursor = myDb.cursor()
-  cursor.execute(sql.format(order_dict["orders_ID"], order_dict["product_ID"],order_dict["customer_ID"],order_dict["orders_quantity"]))
+  cursor.execute(sql.format(order_dict["product_ID"],order_dict["customer_ID"],order_dict["orders_quantity"]))
   myDb.commit()
   cursor.close()
   myDb.close()
@@ -80,10 +79,9 @@ def CreateCustomer():
   customer_dict = dict(data)
   with open ('content/CustomerInsertTable.ddl') as ddl_file:
     sql = ddl_file.read()
-    sql = sql[:-1] + "'{}','{}','{}','{}','{}','{}')"
   myDb = MYSQL.connect(host="147.232.40.14", user="tv635vg", passwd="Airi8Eiw", database="tv635vg")
   cursor = myDb.cursor()
-  cursor.execute(sql.format(customer_dict["customer_ID"], customer_dict["customer_firstName"],customer_dict["customer_lastName"],customer_dict["customer_phone"],customer_dict["customer_email"],customer_dict["customer_address"]))
+  cursor.execute(sql.format(customer_dict["customer_firstName"],customer_dict["customer_lastName"],customer_dict["customer_phone"],customer_dict["customer_email"],customer_dict["customer_address"]))
   myDb.commit()
   cursor.close()
   myDb.close()
@@ -95,10 +93,9 @@ def CreateProduct():
   product_dict = dict(data)
   with open ('content/ProductInsertTable.ddl') as ddl_file:
     sql = ddl_file.read()
-    sql = sql[:-1] + "'{}','{}','{}','{}')"
   myDb = MYSQL.connect(host="147.232.40.14", user="tv635vg", passwd="Airi8Eiw", database="tv635vg")
   cursor = myDb.cursor()
-  cursor.execute(sql.format(product_dict["product_ID"], product_dict["product_name"], product_dict["product_price"], product_dict["product_pieces_WH"]))
+  cursor.execute(sql.format(product_dict["product_name"], product_dict["product_price"], product_dict["product_pieces_WH"]))
   myDb.commit()
   cursor.close()
   myDb.close()
