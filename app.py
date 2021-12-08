@@ -148,7 +148,6 @@ def UpdateProduct(id):
 def DeleteOrder(id):
 	with open ('content/OrderDeleteTable.ddl') as ddl_file:
 		sql = ddl_file.read()
-		sql = sql + "'{}'"
 	myDb = MYSQL.connect(host="147.232.40.14", user="tv635vg", passwd="Airi8Eiw", database="tv635vg")
 	cursor = myDb.cursor()
 	cursor.execute(sql.format(id))
@@ -161,7 +160,6 @@ def DeleteOrder(id):
 def DeleteCustomer(id):
 	with open ('content/CustomerDeleteTable.ddl') as ddl_file:
 		sql = ddl_file.read()
-		sql = sql + "'{}'"
 	myDb = MYSQL.connect(host="147.232.40.14", user="tv635vg", passwd="Airi8Eiw", database="tv635vg")
 	cursor = myDb.cursor()
 	cursor.execute(sql.format(id))
@@ -174,7 +172,6 @@ def DeleteCustomer(id):
 def DeleteProduct(id):
 	with open ('content/ProductDeleteTable.ddl') as ddl_file:
 		sql = ddl_file.read()
-		sql = sql + "'{}'"
 	myDb = MYSQL.connect(host="147.232.40.14", user="tv635vg", passwd="Airi8Eiw", database="tv635vg")
 	cursor = myDb.cursor()
 	cursor.execute(sql.format(id))
