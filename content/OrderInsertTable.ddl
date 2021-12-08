@@ -1,1 +1,1 @@
-INSERT INTO orders(orders_ID, product_ID, customer_ID, orders_quantity) values()
+INSERT INTO orders(product_ID, customer_ID, orders_quantity) values()
