@@ -1,1 +1,1 @@
-DELETE FROM orders where orders_ID=
+DELETE FROM orders where orders_ID='{}'
