@@ -70,7 +70,7 @@ def CreateOrder():
   myDb.commit()
   cursor.close()
   myDb.close()
-  return jsonify("Created"),201
+  return jsonify("Insert"),201
 
 
 @app.route('/CreateCustomer', methods=["POST"])
@@ -85,7 +85,7 @@ def CreateCustomer():
   myDb.commit()
   cursor.close()
   myDb.close()
-  return jsonify("Created"),201
+  return jsonify("Insert"),201
 
 @app.route('/CreateProduct', methods=["POST"])
 def CreateProduct():
@@ -99,7 +99,7 @@ def CreateProduct():
   myDb.commit()
   cursor.close()
   myDb.close()
-  return jsonify("Created"),201
+  return jsonify("Insert"),201
 
 @app.route('/UpdateOrder/<id>', methods=['PUT'])
 def UpdateOrder(id):
@@ -113,7 +113,7 @@ def UpdateOrder(id):
   myDb.commit()
   cursor.close()
   myDb.close()
-  return jsonify("Updated"),200
+  return jsonify("Update"),200
 
 @app.route('/UpdateCustomer/<id>', methods=['PUT'])
 def UpdateCustomer(id):
@@ -127,7 +127,7 @@ def UpdateCustomer(id):
   myDb.commit()
   cursor.close()
   myDb.close()
-  return jsonify("Updated"),200
+  return jsonify("Update"),200
 
 @app.route('/UpdateProduct/<id>', methods=['PUT'])
 def UpdateProduct(id):
@@ -141,7 +141,7 @@ def UpdateProduct(id):
   myDb.commit()
   cursor.close()
   myDb.close()
-  return jsonify("Updated"),200
+  return jsonify("Update"),200
 
 
 @app.route('/DeleteOrder/<id>', methods=['DELETE'])
@@ -154,7 +154,7 @@ def DeleteOrder(id):
 	myDb.commit()
 	cursor.close()
 	myDb.close()
-	return jsonify("Deleted"),204
+	return jsonify("Delete"),204
 
 @app.route('/DeleteCustomer/<id>', methods=['DELETE'])
 def DeleteCustomer(id):
@@ -166,7 +166,7 @@ def DeleteCustomer(id):
 	myDb.commit()
 	cursor.close()
 	myDb.close()
-	return jsonify("Deleted"),204
+	return jsonify("Delete"),204
 
 @app.route('/DeleteProduct/<id>', methods=['DELETE'])
 def DeleteProduct(id):
@@ -178,7 +178,7 @@ def DeleteProduct(id):
 	myDb.commit()
 	cursor.close()
 	myDb.close()
-	return jsonify("Deleted"),204
+	return jsonify("Delete"),204
 
 if __name__ == "__main__":
     app.run()
