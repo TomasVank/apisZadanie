@@ -1,1 +1,1 @@
-DELETE FROM customers where customer_ID=
+DELETE FROM customers where customer_ID='{}'
