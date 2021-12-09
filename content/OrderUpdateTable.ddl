@@ -1,1 +1,1 @@
-UPDATE orders set orders_ID='{}', product_ID='{}', customer_ID='{}', orders_quantity='{}' where orders_ID='{}'
+UPDATE orders set product_ID='{}', customer_ID='{}', orders_quantity='{}' where orders_ID='{}'
