@@ -54,9 +54,13 @@ def GetCustomers():
   cursor = myDb.cursor()
   cursor.execute(sql)
   result = cursor.fetchall()
+  insertObject = []
+  columnNames = [column[0] for column in cursor.description]
+  for record in records:
+    insertObject.append( dict( zip( columnNames , record ) ) )
   cursor.close()
   myDb.close()
-  return jsonify(result),200
+  return jsonify(insertObject),200
 
 @app.route('/CreateOrder', methods=["POST"])
 def CreateOrder():
