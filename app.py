@@ -56,7 +56,7 @@ def GetCustomers():
   result = cursor.fetchall()
   insertObject = []
   columnNames = [column[0] for column in cursor.description]
-  for record in records:
+  for record in result:
     insertObject.append( dict( zip( columnNames , record ) ) )
   cursor.close()
   myDb.close()
