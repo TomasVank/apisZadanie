@@ -17,10 +17,13 @@ def GetOrders():
   cursor = myDb.cursor()
   cursor.execute(sql)
   result = cursor.fetchall()
+  insertObject = []
+  columnNames = [column[0] for column in cursor.description]
+  for record in result:
+    insertObject.append( dict( zip( columnNames , record )))
   cursor.close()
   myDb.close()
-
-  return jsonify(result),200
+  return jsonify(insertObject),200
 
 @app.route('/GetOrders/<id>', methods=['GET'])
 def GetIdOrder(id):
@@ -30,9 +33,13 @@ def GetIdOrder(id):
   cursor = myDb.cursor()
   cursor.execute(sql+id)
   result = cursor.fetchall()
+  insertObject = []
+  columnNames = [column[0] for column in cursor.description]
+  for record in result:
+    insertObject.append( dict( zip( columnNames , record )))
   cursor.close()
   myDb.close()
-  return jsonify(result),200
+  return jsonify(insertObject),200
 
 @app.route('/GetProducts', methods=['GET'])
 def GetProducts():
@@ -42,9 +49,13 @@ def GetProducts():
   cursor = myDb.cursor()
   cursor.execute(sql)
   result = cursor.fetchall()
+  insertObject = []
+  columnNames = [column[0] for column in cursor.description]
+  for record in result:
+    insertObject.append( dict( zip( columnNames , record )))
   cursor.close()
   myDb.close()
-  return jsonify(result),200
+  return jsonify(insertObject),200
 
 @app.route('/GetCustomers', methods=['GET'])
 def GetCustomers():
@@ -57,7 +68,7 @@ def GetCustomers():
   insertObject = []
   columnNames = [column[0] for column in cursor.description]
   for record in result:
-    insertObject.append( dict( zip( columnNames , record ) ) )
+    insertObject.append( dict( zip( columnNames , record )))
   cursor.close()
   myDb.close()
   return jsonify(insertObject),200
