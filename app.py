@@ -13,7 +13,7 @@ CORS(app)
 def GetOrders():
   with open ('content/OrderGetTable.ddl') as ddl_file:
     sql = ddl_file.read()
-  myDb = MYSQL.connect(host="147.232.40.14", user="tv635vg", passwd="Airi8Eiw", database="tv635vg")
+  myDb = MYSQL.connect(host="", user="", passwd="", database="")
   cursor = myDb.cursor()
   cursor.execute(sql)
   result = cursor.fetchall()
@@ -29,7 +29,7 @@ def GetOrders():
 def GetIdOrder(id):
   with open ('content/OrderByIdGetTable.ddl') as ddl_file:
     sql = ddl_file.read()
-  myDb = MYSQL.connect(host="147.232.40.14", user="tv635vg", passwd="Airi8Eiw", database="tv635vg")
+  myDb = MYSQL.connect(host="", user="", passwd="", database="")
   cursor = myDb.cursor()
   cursor.execute(sql+id)
   result = cursor.fetchall()
@@ -45,7 +45,7 @@ def GetIdOrder(id):
 def GetProducts():
   with open ('content/ProductGetTable.ddl') as ddl_file:
     sql = ddl_file.read()
-  myDb = MYSQL.connect(host="147.232.40.14", user="tv635vg", passwd="Airi8Eiw", database="tv635vg")
+  myDb = MYSQL.connect(host="", user="", passwd="", database="")
   cursor = myDb.cursor()
   cursor.execute(sql)
   result = cursor.fetchall()
@@ -61,7 +61,7 @@ def GetProducts():
 def GetCustomers():
   with open ('content/CustomerGetTable.ddl') as ddl_file:
     sql = ddl_file.read()
-  myDb = MYSQL.connect(host="147.232.40.14", user="tv635vg", passwd="Airi8Eiw", database="tv635vg")
+  myDb = MYSQL.connect(host="", user="", passwd="", database="")
   cursor = myDb.cursor()
   cursor.execute(sql)
   result = cursor.fetchall()
@@ -79,7 +79,7 @@ def CreateOrder():
   order_dict = dict(data)
   with open ('content/OrderInsertTable.ddl') as ddl_file:
     sql = ddl_file.read()
-  myDb = MYSQL.connect(host="147.232.40.14", user="tv635vg", passwd="Airi8Eiw", database="tv635vg")
+  myDb = MYSQL.connect(host="", user="", passwd="", database="")
   cursor = myDb.cursor()
   cursor.execute(sql.format(order_dict["product_ID"],order_dict["customer_ID"],order_dict["orders_quantity"]))
   myDb.commit()
@@ -94,7 +94,7 @@ def CreateCustomer():
   customer_dict = dict(data)
   with open ('content/CustomerInsertTable.ddl') as ddl_file:
     sql = ddl_file.read()
-  myDb = MYSQL.connect(host="147.232.40.14", user="tv635vg", passwd="Airi8Eiw", database="tv635vg")
+  myDb = MYSQL.connect(host="", user="", passwd="", database="")
   cursor = myDb.cursor()
   cursor.execute(sql.format(customer_dict["customer_firstName"],customer_dict["customer_lastName"],customer_dict["customer_phone"],customer_dict["customer_email"],customer_dict["customer_address"]))
   myDb.commit()
@@ -108,7 +108,7 @@ def CreateProduct():
   product_dict = dict(data)
   with open ('content/ProductInsertTable.ddl') as ddl_file:
     sql = ddl_file.read()
-  myDb = MYSQL.connect(host="147.232.40.14", user="tv635vg", passwd="Airi8Eiw", database="tv635vg")
+  myDb = MYSQL.connect(host="", user="", passwd="", database="")
   cursor = myDb.cursor()
   cursor.execute(sql.format(product_dict["product_name"], product_dict["product_price"], product_dict["product_pieces_WH"]))
   myDb.commit()
@@ -122,7 +122,7 @@ def UpdateOrder(id):
   order_dict = dict(data)
   with open ('content/OrderUpdateTable.ddl') as ddl_file:
     sql = ddl_file.read()
-  myDb = MYSQL.connect(host="147.232.40.14", user="tv635vg", passwd="Airi8Eiw", database="tv635vg")
+  myDb = MYSQL.connect(host="", user="", passwd="", database="")
   cursor = myDb.cursor()
   cursor.execute(sql.format(order_dict["product_ID"],order_dict["customer_ID"],order_dict["orders_quantity"],id))
   myDb.commit()
@@ -136,7 +136,7 @@ def UpdateCustomer(id):
   customer_dict = dict(data)
   with open ('content/CustomerUpdateTable.ddl') as ddl_file:
     sql = ddl_file.read()
-  myDb = MYSQL.connect(host="147.232.40.14", user="tv635vg", passwd="Airi8Eiw", database="tv635vg")
+  myDb = MYSQL.connect(host="", user="", passwd="Airi8Eiw", database="")
   cursor = myDb.cursor()
   cursor.execute(sql.format(customer_dict["customer_firstName"],customer_dict["customer_lastName"],customer_dict["customer_phone"],customer_dict["customer_email"],customer_dict["customer_address"],id))
   myDb.commit()
@@ -150,7 +150,7 @@ def UpdateProduct(id):
   product_dict = dict(data)
   with open ('content/ProductUpdateTable.ddl') as ddl_file:
     sql = ddl_file.read()
-  myDb = MYSQL.connect(host="147.232.40.14", user="tv635vg", passwd="Airi8Eiw", database="tv635vg")
+  myDb = MYSQL.connect(host="", user="", passwd="", database="")
   cursor = myDb.cursor()
   cursor.execute(sql.format(product_dict["product_name"],product_dict["product_price"],product_dict["product_pieces_WH"],id))
   myDb.commit()
@@ -163,7 +163,7 @@ def UpdateProduct(id):
 def DeleteOrder(id):
 	with open ('content/OrderDeleteTable.ddl') as ddl_file:
 		sql = ddl_file.read()
-	myDb = MYSQL.connect(host="147.232.40.14", user="tv635vg", passwd="Airi8Eiw", database="tv635vg")
+	myDb = MYSQL.connect(host="", user="", passwd="", database="")
 	cursor = myDb.cursor()
 	cursor.execute(sql.format(id))
 	myDb.commit()
@@ -175,7 +175,7 @@ def DeleteOrder(id):
 def DeleteCustomer(id):
 	with open ('content/CustomerDeleteTable.ddl') as ddl_file:
 		sql = ddl_file.read()
-	myDb = MYSQL.connect(host="147.232.40.14", user="tv635vg", passwd="Airi8Eiw", database="tv635vg")
+	myDb = MYSQL.connect(host="", user="", passwd="", database="")
 	cursor = myDb.cursor()
 	cursor.execute(sql.format(id))
 	myDb.commit()
@@ -187,7 +187,7 @@ def DeleteCustomer(id):
 def DeleteProduct(id):
 	with open ('content/ProductDeleteTable.ddl') as ddl_file:
 		sql = ddl_file.read()
-	myDb = MYSQL.connect(host="147.232.40.14", user="tv635vg", passwd="Airi8Eiw", database="tv635vg")
+	myDb = MYSQL.connect(host="", user="", passwd="", database="")
 	cursor = myDb.cursor()
 	cursor.execute(sql.format(id))
 	myDb.commit()
